@@ -19,6 +19,7 @@ import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
 
+
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -35,21 +36,20 @@ const avatarSrcs: Array<string> = [
   />
 
   <HeroSection
-    title=`Equip Your Projects with <span
-        class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`
-    subTitle="Top-quality hardware tools and expert construction services for every project need."
-    primaryBtn="Start Exploring"
-    primaryBtnURL="/products"
-    secondaryBtn="Contact Sales Team"
-    secondaryBtnURL="/contact"
-    withReview={true}
-    avatars={avatarSrcs}
-    rating=`<span class="font-bold">4.8</span> / 5`
-    starCount={4}
-    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
-    src={heroImage}
-    alt="Stack of ScrewFast product boxes containing assorted hardware tools"
-  />
+  title=`La tua azienda è coinvolta dalla <span
+      class="text-yellow-500 dark:text-yellow-400">direttiva NIS2 ?</span>`
+  subTitle="Scoprilo in pochi minuti, inserisci il tuo indirizzo email (aziendale) qui sotto!"
+  withReview={true}
+  avatars={avatarSrcs}
+  rating={`<span class="font-bold">4.8</span> / 5`}
+  starCount={4}
+  reviews={`From Over <span class="font-bold">12.8k</span> Reviews`}
+  src={heroImage}
+  alt="Stack of ScrewFast product boxes containing assorted hardware tools"
+/>
+
+<!-- Rimuovi il FormSection separato, poiché ora è incluso nella HeroSection -->
+
 
   <ClientsSection
     title="Trusted by Industry Leaders"

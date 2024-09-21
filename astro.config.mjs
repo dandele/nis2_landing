@@ -3,6 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
+import node from '@astrojs/node'; // Importa l'adattatore
 
 // https://astro.build/config
 export default defineConfig({
@@ -111,13 +112,16 @@ export default defineConfig({
           },
         },
       ],
-    }),
+    }), 
     compressor({
       gzip: false,
       brotli: true,
     }),
   ],
-  output: "static",
+  output: "server",
+  adapter: node({
+    mode: 'standalone', // Puoi anche usare 'middleware' se necessario
+  }),
   experimental: {
     clientPrerender: true,
     directRenderScript: true,

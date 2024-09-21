@@ -1,0 +1,128 @@
+---
+import Layout from "@/layouts/MainLayout.astro";
+import { supabase } from '../lib/supabaseClient';
+
+const email = Astro.url.searchParams.get('email');
+
+if (!email) {
+  throw new Error('Email non fornita. Torna alla pagina precedente e inserisci la tua email.');
+}
+
+// Variabili per memorizzare i dati inseriti dall'utente
+let sector = '';
+let atecoCode = '';
+let numberOfEmployees = '';
+let annualRevenue = '';
+
+// Variabili per determinare se i campi sono stati compilati
+let hasSector = false;
+let hasAtecoCode = false;
+
+// Variabile per determinare se le condizioni sono soddisfatte
+let conditionsMet = false;
+
+if (Astro.request.method === 'POST') {
+  const formData = await Astro.request.formData();
+  sector = formData.get('sector');
+  atecoCode = formData.get('atecoCode');
+  numberOfEmployees = formData.get('numberOfEmployees');
+  annualRevenue = formData.get('annualRevenue');
+
+  // Validazione dei campi
+  hasSector = sector && typeof sector === 'string' && sector.trim() !== '';
+  hasAtecoCode = atecoCode && typeof atecoCode === 'string' && atecoCode.trim() !== '';
+
+  if (!hasSector && !hasAtecoCode) {
+    throw new Error('Per favore, inserisci almeno il Settore di Attività o il Codice ATECO.');
+  }
+  if (!numberOfEmployees || isNaN(Number(numberOfEmployees))) {
+    throw new Error('Numero di dipendenti non valido.');
+  }
+  if (!annualRevenue || isNaN(Number(annualRevenue))) {
+    throw new Error('Fatturato annuale non valido.');
+  }
+
+  // Converti i valori in numeri
+  const numEmployees = Number(numberOfEmployees);
+  const revenue = Number(annualRevenue);
+
+  // Verifica le condizioni su fatturato e numero di dipendenti
+  const isRevenueValid = revenue > 10;
+  const isEmployeesValid = numEmployees > 50;
+
+  let hasMatch = false;
+
+  try {
+    console.log('Eseguo la query su Supabase con i dati inseriti dall\'utente.');
+
+    // Costruisci la query su Supabase in base ai campi compilati
+    let query = supabase.from('ateco').select('*');
+
+    if (hasSector && hasAtecoCode) {
+      // Se l'utente ha inserito entrambi
+      query = query.or(`codice_ateco.eq.${atecoCode},sector.ilike.%${sector}%`);
+    } else if (hasAtecoCode) {
+      // Solo codice ATECO
+      query = query.eq('codice_ateco', atecoCode);
+    } else if (hasSector) {
+      // Solo settore
+      query = query.ilike('sector', `%${sector}%`);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+      console.error('Errore dalla query Supabase:', error);
+      throw error;
+    }
+
+    console.log('Risultati ottenuti da Supabase:', data);
+
+    // Verifica se ci sono risultati
+    hasMatch = data.length > 0;
+
+    // Determina se tutte le condizioni sono soddisfatte
+    conditionsMet = isRevenueValid && isEmployeesValid && hasMatch;
+
+  } catch (error) {
+    console.error('Errore durante la ricerca su Supabase:', error);
+    throw new Error(`Errore durante la ricerca: ${error.message}`);
+  }
+}
+---
+<Layout>
+  <section class="py-16 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 text-neutral-700 dark:text-neutral-300">I tuoi risultati</h2>
+
+      { Astro.request.method !== 'POST' ? (
+        <!-- Form -->
+        <!-- ... Il form aggiornato come mostrato sopra ... -->
+      ) : (
+        <!-- Risultato -->
+        <div class="text-center">
+          { conditionsMet ? (
+            <p class="text-xl font-bold mb-4 text-neutral-700 dark:text-neutral-300">Ok, sembra che la tua azienda sia coinvolta dalla direttiva NIS2!</p>
+            <p class="text-xl font-bold mb-4 text-neutral-700 dark:text-neutral-300">Ma niente ansia, ci siamo noi a farti vedere come puoi essere in regola con la direttiva NIS2!</p>
+          ) : (
+            <p class="text-xl font-bold mb-4 text-neutral-700 dark:text-neutral-300">Tutto bene, dai, sembra che la tua azienda non sia coinvolta dalla direttiva NIS2.</p>
+            <p class="text-xl font-bold mb-4 text-neutral-700 dark:text-neutral-300">Ma vale lo stesso per i tuoi clienti?.</p>
+          )}
+
+          <p class="text-lg mb-4 text-neutral-700 dark:text-neutral-300">Hai inserito i seguenti dati:</p>
+          <ul class="list-disc pl-5 inline-block text-left text-neutral-700 dark:text-neutral-300">
+            <li><strong>Email:</strong> {email}</li>
+            { hasSector && (
+              <li><strong>Settore di Attività:</strong> {sector}</li>
+            )}
+            { hasAtecoCode && (
+              <li><strong>Codice ATECO:</strong> {atecoCode}</li>
+            )}
+            <li><strong>Numero di Dipendenti:</strong> {numberOfEmployees}</li>
+            <li><strong>Fatturato Annuale:</strong> {annualRevenue} milioni di euro</li>
+          </ul>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
