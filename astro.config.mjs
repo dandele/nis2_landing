@@ -3,7 +3,6 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
-import node from '@astrojs/node'; // Importa l'adattatore
 import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
