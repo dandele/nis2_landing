@@ -1,20 +1,17 @@
 {
-  "name": "",
+  "name": "test",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build && node process-html.mjs",
+    "build": "astro check && astro build && node process-html.mjs --verbose",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
-    "@astrojs/sitemap": "^3.1.6",
-    "@astrojs/starlight": "^0.27.1",
     "@astrojs/starlight-tailwind": "^2.0.3",
-    "@astrojs/tailwind": "^5.1.0",
     "@notionhq/client": "^2.2.15",
     "@preline/accordion": "^2.4.1",
     "@preline/collapse": "^2.4.1",
@@ -24,7 +21,6 @@
     "@supabase/supabase-js": "^2.45.4",
     "@vercel/nft": "^0.27.4",
     "astro": "^4.15.8",
-    "astro-compressor": "^0.4.1",
     "clipboard": "^2.0.11",
     "globby": "^14.0.2",
     "gsap": "^3.12.5",
@@ -37,8 +33,12 @@
     "tailwindcss": "^3.4.11"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/starlight": "^0.28.2",
+    "@astrojs/tailwind": "^5.1.1",
     "@astrojs/vercel": "^7.8.1",
     "@tailwindcss/forms": "^0.5.9",
+    "astro-compressor": "^0.4.1",
     "astro-vtbot": "^1.9.2",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
