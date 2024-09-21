@@ -38,9 +38,9 @@
       ]
     }
   ],
-  "routes": [
-    { "src": "/api/step-one", "dest": "/api/step-one" },
-    { "src": "/api/step-two", "dest": "/api/step-two" },
-    { "src": "/api/submit-form", "dest": "/api/submit-form" }
+  "rewrites": [
+    { "source": "/api/step-one", "destination": "/api/step-one" },
+    { "source": "/api/step-two", "destination": "/api/step-two" },
+    { "source": "/api/submit-form", "destination": "/api/submit-form" }
   ]
 }
