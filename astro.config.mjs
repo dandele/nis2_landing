@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
 import node from '@astrojs/node'; // Importa l'adattatore
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -119,9 +120,7 @@ export default defineConfig({
     }),
   ],
   output: "server",
-  adapter: node({
-    mode: 'standalone', // Puoi anche usare 'middleware' se necessario
-  }),
+  adapter: vercel(),
   experimental: {
     clientPrerender: true,
     directRenderScript: true,
