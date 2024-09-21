@@ -9,10 +9,10 @@ if (!email) {
 }
 
 // Variabili per memorizzare i dati inseriti dall'utente
-let sector = '';
-let atecoCode = '';
-let numberOfEmployees = '';
-let annualRevenue = '';
+let sector: string | null = '';
+let atecoCode: string | null = '';
+let numberOfEmployees: string | null = '';
+let annualRevenue: string | null = '';
 
 // Variabili per determinare se i campi sono stati compilati
 let hasSector = false;
@@ -23,14 +23,14 @@ let conditionsMet = false;
 
 if (Astro.request.method === 'POST') {
   const formData = await Astro.request.formData();
-  sector = formData.get('sector');
-  atecoCode = formData.get('atecoCode');
-  numberOfEmployees = formData.get('numberOfEmployees');
-  annualRevenue = formData.get('annualRevenue');
+  sector = formData.get('sector') as string | null;
+  atecoCode = formData.get('atecoCode') as string | null;
+  numberOfEmployees = formData.get('numberOfEmployees') as string | null;
+  annualRevenue = formData.get('annualRevenue') as string | null;
 
   // Validazione dei campi
-  hasSector = sector && typeof sector === 'string' && sector.trim() !== '';
-  hasAtecoCode = atecoCode && typeof atecoCode === 'string' && atecoCode.trim() !== '';
+  hasSector = Boolean(sector && typeof sector === 'string' && sector.trim() !== '');
+  hasAtecoCode = Boolean(atecoCode && typeof atecoCode === 'string' && atecoCode.trim() !== '');
 
   if (!hasSector && !hasAtecoCode) {
     throw new Error('Per favore, inserisci almeno il Settore di Attività o il Codice ATECO.');
@@ -86,9 +86,16 @@ if (Astro.request.method === 'POST') {
 
   } catch (error) {
     console.error('Errore durante la ricerca su Supabase:', error);
-    throw new Error(`Errore durante la ricerca: ${error.message}`);
+    if (error instanceof Error) {
+      throw new Error(`Errore durante la ricerca: ${error.message}`);
+    } else {
+      throw new Error('Errore durante la ricerca: errore sconosciuto.');
+    }
   }
 }
+---
+<!-- Il tuo template HTML -->
+
 ---
 <Layout>
   <section class="py-16 min-h-screen flex items-center justify-center">
