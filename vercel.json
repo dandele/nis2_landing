@@ -1,15 +1,4 @@
 {
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/api/(.*)", 
-      "destination": "/api/index.js"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -48,5 +37,10 @@
         }
       ]
     }
+  ],
+  "routes": [
+    { "src": "/api/step-one", "dest": "/api/step-one" },
+    { "src": "/api/step-two", "dest": "/api/step-two" },
+    { "src": "/api/submit-form", "dest": "/api/submit-form" }
   ]
 }
