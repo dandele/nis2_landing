@@ -3,7 +3,8 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel/serverless'; // Cambia qui l'adapter
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -58,7 +59,5 @@ export default defineConfig({
     }),
   ],
   output: "server",
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: vercel()
 });
