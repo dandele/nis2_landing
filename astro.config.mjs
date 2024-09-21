@@ -25,7 +25,6 @@ export default defineConfig({
     }),
     starlight({
       title: "ScrewFast Docs",
-      disable404Route: "true",  // Disabilita la rotta 404 di Starlight
       defaultLocale: "root",
       locales: {
         root: {
