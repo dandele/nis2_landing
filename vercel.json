@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/(.*)", // Questa linea specifica la route per cui applicare le intestazioni
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
