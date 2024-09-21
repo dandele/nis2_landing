@@ -20,3 +20,11 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+rm -rf .vercel/output
+echo ".vercel/output" >> .gitignore
+git add .gitignore
+git commit -m "Rimuovi .vercel/output"
+git push
+
+.vercel/output
