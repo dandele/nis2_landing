@@ -3,7 +3,7 @@ import { a as createComponent, r as renderTemplate, d as renderComponent, m as m
 import 'kleur/colors';
 import { a as $$MainLayout, S as SITE } from '../../chunks/MainLayout_BUnOXSiw.mjs';
 import { $ as $$CardBlog, a as $$CardBlogRecent, b as $$CardInsight } from '../../chunks/CardInsight_OKPwd0QU.mjs';
-import { g as getCollection } from '../../chunks/_astro_content_CC3MH0Km.mjs';
+import { g as getCollection } from '../../chunks/_astro_content_DUFY5cVT.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {

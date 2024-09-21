@@ -5,7 +5,7 @@ import { S as SITE, a as $$MainLayout } from '../../../chunks/MainLayout_BUnOXSi
 import { $ as $$ProductTabBtn } from '../../../chunks/ProductTabBtn_DwXCtAaz.mjs';
 import { $ as $$PrimaryCTA } from '../../../chunks/PrimaryCTA_C3-L1v00.mjs';
 import { $ as $$Image } from '../../../chunks/_astro_assets_C1gE2Nyu.mjs';
-import { g as getCollection } from '../../../chunks/_astro_content_CC3MH0Km.mjs';
+import { g as getCollection } from '../../../chunks/_astro_content_DUFY5cVT.mjs';
 export { renderers } from '../../../renderers.mjs';
 
 const $$Astro = createAstro("https://screwfast.uk");

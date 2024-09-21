@@ -5,7 +5,7 @@ import { S as SITE, a as $$MainLayout } from '../../chunks/MainLayout_BUnOXSiw.m
 import { $ as $$AvatarBlogLarge, f as formatDate, c as capitalize } from '../../chunks/AvatarBlogLarge_KSr8yH2Q.mjs';
 import { $ as $$Bookmark, a as $$SocialShare, b as $$PostFeedback, c as $$CardRelated } from '../../chunks/PostFeedback_65zrezAD.mjs';
 import { $ as $$Image } from '../../chunks/_astro_assets_C1gE2Nyu.mjs';
-import { g as getCollection } from '../../chunks/_astro_content_CC3MH0Km.mjs';
+import { g as getCollection } from '../../chunks/_astro_content_DUFY5cVT.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro("https://screwfast.uk");

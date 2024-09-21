@@ -4,7 +4,7 @@ import 'kleur/colors';
 import { a as $$MainLayout } from '../../chunks/MainLayout_BUnOXSiw.mjs';
 import { $ as $$PrimaryCTA } from '../../chunks/PrimaryCTA_C3-L1v00.mjs';
 import { $ as $$CardSmall, a as $$CardWide, b as $$FeaturesStatsAlt, c as $$TestimonialsSectionAlt } from '../../chunks/TestimonialsSectionAlt_BmICdD9j.mjs';
-import { g as getCollection } from '../../chunks/_astro_content_CC3MH0Km.mjs';
+import { g as getCollection } from '../../chunks/_astro_content_DUFY5cVT.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro("https://screwfast.uk");

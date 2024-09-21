@@ -1,9 +1,9 @@
 /* empty css                                 */
 import { c as createAstro, a as createComponent, r as renderTemplate, m as maybeRenderHead, u as unescapeHTML, f as renderSlot, d as renderComponent, b as addAttribute, e as renderScript, F as Fragment, h as defineStyleVars, s as spreadAttributes, g as renderHead } from '../chunks/astro/server_D7qnCaNf.mjs';
 import 'kleur/colors';
-import { g as getCollection } from '../chunks/_astro_content_CC3MH0Km.mjs';
-import { s as starlightConfig, B as BuiltInDefaultLocale, p as pickLang, D as DeprecatedLabelsPropProxy, u as useTranslations } from '../chunks/translations_CCeiH-C9.mjs';
-import { s as slugToLocaleData, l as localizedSlug, a as localizedId, b as slugToParam, c as stripTrailingSlash, d as stripLeadingSlash, e as ensureHtmlExtension, f as ensureTrailingSlash, g as stripHtmlExtension, h as localeToLang, i as ensureLeadingSlash, j as stripLeadingAndTrailingSlashes, k as slugToPathname, $ as $$Icon, m as $$LinkButton, n as $$Badge } from '../chunks/Code_BenouHFB.mjs';
+import { g as getCollection } from '../chunks/_astro_content_DUFY5cVT.mjs';
+import { s as starlightConfig, B as BuiltInDefaultLocale, p as pickLang, D as DeprecatedLabelsPropProxy, u as useTranslations } from '../chunks/translations_DfcghzIX.mjs';
+import { s as slugToLocaleData, l as localizedSlug, a as localizedId, b as slugToParam, c as stripTrailingSlash, d as stripLeadingSlash, e as ensureHtmlExtension, f as ensureTrailingSlash, g as stripHtmlExtension, h as localeToLang, i as ensureLeadingSlash, j as stripLeadingAndTrailingSlashes, k as slugToPathname, $ as $$Icon, m as $$LinkButton, n as $$Badge } from '../chunks/Code_B3rKdMOx.mjs';
 import { h as AstroUserError } from '../chunks/astro/assets-service_B9XEKzn8.mjs';
 /* empty css                                 */
 import 'clsx';
