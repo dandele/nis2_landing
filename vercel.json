@@ -1,7 +1,6 @@
 {
   "headers": [
     {
-      "source": "/(.*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
@@ -41,6 +40,10 @@
   "rewrites": [
     { "source": "/api/step-one", "destination": "/api/step-one" },
     { "source": "/api/step-two", "destination": "/api/step-two" },
-    { "source": "/api/submit-form", "destination": "/api/submit-form" }
+    { "source": "/api/submit-form", "destination": "/api/submit-form" },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
