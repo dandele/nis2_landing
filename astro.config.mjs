@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
-import vercel from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel/server';
 
 // https://astro.build/config
 export default defineConfig({
@@ -118,7 +118,7 @@ export default defineConfig({
       brotli: true,
     }),
   ],
-  output: "static",
+  output: "server",
   adapter: vercel(),
   experimental: {
     clientPrerender: true,
