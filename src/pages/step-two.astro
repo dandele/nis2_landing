@@ -104,7 +104,65 @@ if (Astro.request.method === 'POST') {
 
       { Astro.request.method !== 'POST' ? (
         <!-- Form -->
-        <!-- ... Il form aggiornato come mostrato sopra ... -->
+        <form method="POST" class="max-w-md mx-auto">
+          <input type="hidden" name="email" value={email} />
+
+          <div class="mb-4">
+            <label for="sector" class="block text-neutral-700 dark:text-neutral-300 text-sm font-bold mb-2">Settore di Attività:</label>
+            <input
+              type="text"
+              id="sector"
+              name="sector"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-neutral-700 dark:text-neutral-300 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="atecoCode" class="block text-neutral-700 dark:text-neutral-300 text-sm font-bold mb-2">Codice ATECO:</label>
+            <input
+              type="text"
+              id="atecoCode"
+              name="atecoCode"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-neutral-700 dark:text-neutral-300 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="numberOfEmployees" class="block text-neutral-700 dark:text-neutral-300 text-sm font-bold mb-2">Numero di Dipendenti:</label>
+            <input
+              type="number"
+              id="numberOfEmployees"
+              name="numberOfEmployees"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-neutral-700 dark:text-neutral-300 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="annualRevenue" class="block text-neutral-700 dark:text-neutral-300 text-sm font-bold mb-2">Fatturato Annuale (in milioni di euro):</label>
+            <input
+              type="number"
+              id="annualRevenue"
+              name="annualRevenue"
+              step="0.01"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-neutral-700 dark:text-neutral-300 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+
+          <!-- Aggiungi altri campi se necessario -->
+
+          <div class="flex items-center justify-center">
+            <button
+              type="submit"
+              class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Invia
+            </button>
+          </div>
+        </form>
       ) : (
         <!-- Risultato -->
         <div class="text-center">
